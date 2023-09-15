@@ -1,6 +1,6 @@
 import Client from "@client";
 import { PrefixCommands } from "@models";
-import {CacheType, Message, ModalSubmitInteraction } from "discord.js";
+import { Message } from "discord.js";
 
 export class Example extends PrefixCommands {
     constructor(){

@@ -9,7 +9,7 @@ export default class Load extends BaseLoad {
     load_all() {
 
         this.client.center("╭─────────────────╮".blue);
-        this.client.center("│".blue + "   Cargando App  ".cyan + "│".blue);
+        this.client.center("│".blue + "  Cargando App   ".cyan + "│".blue);
         this.client.center("╰─────────────────╯".blue);
 
         // events
