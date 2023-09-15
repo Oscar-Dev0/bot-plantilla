@@ -8,6 +8,7 @@
   "devDependencies": {
     "@types/module-alias": "^2.0.2",
     "module-alias": "^2.2.3",
+    "nodemon": "^3.0.1",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
@@ -18,7 +19,12 @@
   "version": "0.0.1",
   "main": "app/index.js",
   "scripts": {
-    "test": "ts-node src/index.ts"
+    "build": " tsc ",
+    "nodemon#ts": "nodemon src/index.ts",
+    "node#ts": "ts-node src/index.ts",
+    "nodemon#js": "nodemon dist/index.js",
+    "build#npms": " npm i",
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
