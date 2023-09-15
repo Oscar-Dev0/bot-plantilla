@@ -1,6 +1,7 @@
-import { Base } from "@models";
 import Client from "@client";
 import { AnySelectMenuInteraction, ApplicationCommandData, ButtonInteraction, CommandInteraction, ModalSubmitInteraction,} from "discord.js";
+import Base from "./base";
+
 
 export class Buttons extends Base {
     public customID: string;
@@ -62,3 +63,4 @@ export class ModalSubmit extends Base{
     };
     run(client: Client, int: ModalSubmitInteraction, data?: {}): any | Promise<any> {}
 };
+

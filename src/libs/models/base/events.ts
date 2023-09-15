@@ -1,6 +1,6 @@
 import Client from "@client";
-import { Base } from "@models";
 import { ClientEvents } from "discord.js";
+import Base from "./base";
 
 export class Events extends Base {
     public name: keyof ClientEvents;
@@ -11,5 +11,5 @@ export class Events extends Base {
             this.name = options;
     };
 
-    run(client: Client, ...args: any[]): any | Promise<any> { };
+    run(client: Client, ...args: any[]): any | Promise<any> {};
 }

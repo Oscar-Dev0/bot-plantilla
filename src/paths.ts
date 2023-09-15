@@ -1,5 +1,13 @@
 import 'colors';
 import { centrar } from './assets/config';
+import 'module-alias/register';
+import { addAliases  } from "module-alias"; 
+
+
+addAliases({
+    "@models": __dirname + "/libs/models/base/index",
+    "@client": __dirname + "/libs/models/client",
+})
 
 
 //Errores

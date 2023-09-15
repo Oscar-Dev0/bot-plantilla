@@ -8,17 +8,16 @@ export default class Client extends Cli<true>{
     public static center = centrar;
     public center = centrar;
     public load = new Load(this);
-    public commands: {
-        prefix: Collection<string, PrefixCommands>,
-        slash: Collection<string, SlashCommands>,
-        subSlahs: Collection<string, SubCommands>
+    public commands =  {
+        prefix: new Collection<string, PrefixCommands>,
+        slash: new Collection<string, SlashCommands>,
+        subSlahs: new Collection<string, SubCommands>
     };
-    public interaction: {
-        buttons: Collection<string, Buttons>,
-        selectMenu: Collection<string, SelectMenu>,
-        modals: Collection<string, ModalSubmit>
-
-    }
+    public interaction= {
+        buttons: new Collection<string, Buttons>,
+        selectMenu: new Collection<string, SelectMenu>,
+        modals: new Collection<string, ModalSubmit>
+    };
 
     constructor(options: ClientOptions){
         super(options);

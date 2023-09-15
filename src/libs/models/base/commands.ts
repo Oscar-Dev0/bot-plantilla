@@ -1,6 +1,6 @@
-import { Base } from "@models";
 import Client from "@client";
 import { Message } from "discord.js";
+import Base from "./base";
 
 export class PrefixCommands extends Base{
         public name: string;

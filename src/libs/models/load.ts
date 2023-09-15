@@ -1,16 +1,16 @@
 import { BaseLoad } from "@models";
 import Client from "@client";
 
-export default class Load extends BaseLoad{
-    constructor(client: Client){
+export default class Load extends BaseLoad {
+    constructor(client: Client) {
         super(client);
     };
 
-     load_all(){
+    load_all() {
 
-        this.client.center("╭──────────────────╮".blue);
-        this.client.center("│".blue+"   Cargando App  ".cyan + "│".blue);
-        this.client.center("╰──────────────────╯".blue);
+        this.client.center("╭─────────────────╮".blue);
+        this.client.center("│".blue + "   Cargando App  ".cyan + "│".blue);
+        this.client.center("╰─────────────────╯".blue);
 
         // events
         this.load('../../../../app/events');
