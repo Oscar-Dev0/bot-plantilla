@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "colors": "^1.4.0",
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.3.1",
+    "import-fresh": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/module-alias": "^2.0.2",
+    "module-alias": "^2.2.3",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.2.2"
+  },
+  "name": "bot-plantilla",
+  "description": "Esta es una plantilla para bots con npm discordjs",
+  "version": "0.0.1",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oscar-Dev0/bot-plantilla.git"
+  },
+  "author": "Oscar-Dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Oscar-Dev0/bot-plantilla/issues"
+  },
+  "homepage": "https://github.com/Oscar-Dev0/bot-plantilla#readme"
+}
