@@ -21,7 +21,7 @@ export class Ready extends Events {
         if (cmd.dev && !client.keys.devs.includes(message.author.id)) return message.channel.send({ content: "Comando solo de developers." })
         if (cmd) {
             try {
-                console.log("[Comando activado]: ".green + `${args[0]}` + "[User]: ".cyan + message.author.username)
+                console.log("[Comando activado]: ".green + `${args[0]}` + " [User]: ".cyan + message.author.username)
                 await cmd.run(client, message, args.slice(1));
             } catch (error) {
                 console.log("[Comando Error]: ".red + error.stack.slice(0, 300) )

@@ -15,32 +15,32 @@ class interaction_Create extends Events {
             const modals = client.interaction.modals.get(interaction.customId);
 
             if (modals) {
-                this.TryCatch("Modals", client, interaction, modals, interaction.customId);
+                return this.TryCatch("Modals", client, interaction, modals, interaction.customId);
             };
         } else
         if (interaction.isCommand()) {
 
-            const cmd = client.commands.subSlahs.get(interaction.commandName);
+            const cmd = client.commands.slash.get(interaction.commandName);
 
             if (cmd) {
-                this.TryCatch("CommandSlash", client, interaction, cmd, interaction.commandName);
+                return this.TryCatch("CommandSlash", client, interaction, cmd, interaction.commandName);
 
             } else if (!cmd) {
-                return interaction.reply({ content: "Que raro no existe ese comandó " + cmd, ephemeral: true })
+                return interaction.reply({ content: "Que raro no existe ese comandó " + interaction.commandName, ephemeral: true })
             };
         } if (interaction.isButton()) {
                 const btn = client.interaction.buttons.get(interaction.customId);
 
                 if (!btn) return interaction.reply({ content: "Que raro no existe ese boton", ephemeral: true });
 
-                this.TryCatch("Buttons", client, interaction, btn, interaction.customId);
+                return this.TryCatch("Buttons", client, interaction, btn, interaction.customId);
             } else
                 if (interaction.isAnySelectMenu()) {
                     const menu = client.interaction.selectMenu.get(interaction.customId);
                     if (menu) {
-                        this.TryCatch("Menu", client, interaction, menu, interaction.customId);
+                        return this.TryCatch("Menu", client, interaction, menu, interaction.customId);
                     } else {
-                        interaction.reply({ content: "Que raro no entro a un Select-Menu.", ephemeral: true});
+                        return interaction.reply({ content: "Que raro no entro a un Select-Menu.", ephemeral: true});
                     };
 
         } else {
@@ -55,9 +55,9 @@ class interaction_Create extends Events {
             if (interaction.isCommand()) {
 
                 //@ts-ignore
-                const SubCommandGroup = interaction.options.getSubcommandGroup();
+                const SubCommandGroup = interaction.options.getSubcommandGroup(false);
                 //@ts-ignore
-                const SubCommand = interaction.options.getSubcommand();
+                const SubCommand = interaction.options.getSubcommand(false);
 
                 if (typeof SubCommandGroup == "string" && SubCommand) data.custom = `${interaction.commandName}-${SubCommandGroup}-${SubCommand}`;
                 else if ( typeof SubCommand == "string") data.custom = `${interaction.commandName}-${SubCommand}`;
@@ -70,7 +70,7 @@ class interaction_Create extends Events {
             };
 
             await funtion.run(client, interaction);
-            console.log("[Comando activado]: ".green + data.custom  + "[Type]: "+ data.type+ "[User]: ".cyan + interaction.member.user.username)
+            console.log("[Comando activado]: ".green + data.custom  + " [Type]: ".magenta+ data.type+ " [User]: ".cyan + interaction.member.user.username)
         } catch (error: any) {
             //@ts-ignore
             if(error.message.includes("No se encontro el archivo")) interaction.reply({ content: "Hubo un gran error en la base de datos.", ephemeral: true});
