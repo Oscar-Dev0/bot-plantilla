@@ -1,10 +1,13 @@
 import { Client as Cli, ClientOptions, Collection } from "discord.js";
 import { centrar, keys } from "../../assets/config";
 import { Buttons, ModalSubmit, PrefixCommands, SelectMenu, SlashCommands, SubCommands } from "@models";
+import Load from "./load";
 
 export default class Client extends Cli<true>{
     public  keys = keys;
     public static center = centrar;
+    public center = centrar;
+    public load = new Load(this);
     public commands: {
         prefix: Collection<string, PrefixCommands>,
         slash: Collection<string, SlashCommands>,
@@ -30,11 +33,15 @@ export default class Client extends Cli<true>{
             return "";
         }
         try{
-            return await super.login(token)
+            centrar("╭──────────────────╮".blue);
+            centrar("│".blue+"   Token Valido   ".yellow + "│".blue);
+            centrar("╰──────────────────╯".blue);
+            this.load.load_all();
+            return await super.login(token);
         } catch {
-            centrar("╭────────────────────╮".blue);
-            centrar("│".blue+"   Token invalido   ".red + "│".blue);
-            centrar("╰────────────────────╯".blue);
+            centrar("╭─────────────────╮".blue);
+            centrar("│".blue+"    Token invalido   ".red + "│".blue);
+            centrar("╰─────────────────╯".blue);
         }
         return "";
     };

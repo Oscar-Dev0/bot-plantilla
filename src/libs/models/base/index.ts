@@ -7,7 +7,7 @@ export * from "./load";
 
 
 
-export default class Base {
+export class Base {
 
     public embed(color: ColorResolvable = "Random",title?:string, description?:string){
         const embed = new EmbedBuilder();

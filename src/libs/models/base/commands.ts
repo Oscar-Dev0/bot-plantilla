@@ -1,4 +1,4 @@
-import Base from "@models";
+import { Base } from "@models";
 import Client from "@client";
 import { Message } from "discord.js";
 

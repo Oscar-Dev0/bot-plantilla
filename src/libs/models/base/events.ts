@@ -1,5 +1,5 @@
 import Client from "@client";
-import Base from "@models";
+import { Base } from "@models";
 import { ClientEvents } from "discord.js";
 
 export class Events extends Base {

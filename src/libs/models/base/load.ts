@@ -9,7 +9,7 @@ import import_fresh from 'import-fresh';
 const lstatAsync = promisify(lstat);
 
 export class BaseLoad {
-    private client: Client;
+    public client: Client;
     constructor(client: Client) {
         this.client = client;
     }
