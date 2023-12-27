@@ -1,4 +1,4 @@
-name: autofix.ci  # needed to securely identify the workflow
+loname: autofix.ci  # needed to securely identify the workflow
 
 on:
   pull_request:
@@ -20,5 +20,9 @@ jobs:
         with:
           node-version: 20
       - run: npx prettier --write .
+
+
+      - run: pip install pre-commit
+      - run: pre-commit run --all-files
 
       - uses: autofix-ci/action@d3e591514b99d0fca6779455ff8338516663f7cc
